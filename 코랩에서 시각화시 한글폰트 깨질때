@@ -1,0 +1,24 @@
+# 시각화시 한글폰트 깨짐 방지
+
+!sudo apt-get install -y fonts-nanum
+!sudo fc-cache -fv
+!rm ~/.cache/matplotlib -rf
+
+# 셀 실행 후 런타임 재실행
+
+
+
+import matplotlib.pyplot as plt
+
+# Windows의 한글폰트 설정
+plt.rc("font", family = "NanumBarunGothic")
+
+# Mac의 한글폰트 설정
+# plt.rc("font", family = "AppleGothic")
+
+# 음수기호(-) 제대로 표기하기 위한 코드
+plt.rc("axes", unicode_minus = False)
+
+# 폰트 선명하게 보이도록
+from IPython.display import set_matplotlib_formats
+set_matplotlib_formats("retina")
